@@ -18,7 +18,7 @@ timeout(time: 60, unit: 'MINUTES') {
                         string(credentialsId: 'GLOBAL_M11G_INFRASTRUCTURE_ECR_URL', variable: 'ECR_URL')
                     ]) {
                         sh("aws ecr get-login-password | docker login --username AWS --password-stdin ${env.ECR_URL}")
-                        sh("docker buildx build --platform linux/amd64 . -t ${env.ECR_URL}m11g-db-api-svc:0.0.1 --push")
+                        sh("docker buildx build --platform linux/amd64 . -t ${env.ECR_URL}/m11g-db-api-svc:0.0.1 --push")
                     }
                 }
             }
