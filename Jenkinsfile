@@ -11,6 +11,7 @@ timeout(time: 60, unit: 'MINUTES') {
     timestamps {
         ansiColor('xterm') {
             node('ci-x86-enc-u22.04-m11g-v2-slave') {
+                git branch: 'main', url: 'https://github.com/ajax-pyvovarov-y/test-ecr.git'
                 withEnv(["AWS_DEFAULT_REGION=eu-west-1"]) {
                     withCredentials([
                         AWS_CREDENTIALS,
